@@ -20,10 +20,12 @@ public class HealthGauge : MonoBehaviour
     void Update()
     {
         healthBar.fillAmount = health / maxHealth;
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            HealthGauge.health += 25f;
-        }
+        //if (start.activeSelf == false)
+        //{
+            if (Input.GetMouseButtonDown(0))
+            {
+                HealthGauge.health += 25f;
+            }
+        //}
     }
 }
