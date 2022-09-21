@@ -23,7 +23,7 @@ public class HealthGauge : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            HealthGauge.health += 10f;
+            HealthGauge.health += 25f;
         }
     }
 }
