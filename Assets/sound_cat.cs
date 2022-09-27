@@ -3,33 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthGauge : MonoBehaviour
+public class sound_cat : MonoBehaviour
 {
     public GameObject start;
+    private AudioSource theAudio;
+    [SerializeField] private AudioClip[] clip;
     Image healthBar;
-    float maxHealth = 100f;
-    public static float health;
-
+   
     // Start is called before the first frame update
     void Start()
     {
+        theAudio = GetComponent<AudioSource>();
         start = GameObject.Find("Start");
-        healthBar = GetComponent<Image>();
-        health = 0;
     }
 
     // Update is called once per frame
-    void Update()
+    void Play()
     {
-        healthBar.fillAmount = health / maxHealth;
         if (start.activeSelf == false)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-            
-
-             HealthGauge.health += 25f;
-            }
+            theAudio.Play();
+            Invoke("InvokeT", 6f);
         }
     }
+
+    public void InvokeT()
+    {
+        theAudio.Stop();
+        Invoke("Play", 2f);
+    }
+    
 }
